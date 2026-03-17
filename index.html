@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Coleta Domiciliar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container" id="loginBox">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Usuário">
+        <input type="password" id="password" placeholder="Senha">
+        <button onclick="fazerLogin()">Entrar</button>
+    </div>
+
+    <div class="main-container" id="mainContainer" style="display:none;">
+        <header>
+            <h1>Coleta Domiciliar</h1>
+            <button onclick="logout()">Sair</button>
+        </header>
+        
+        <nav>
+            <button onclick="carregarAgenda()">📅 AGENDA</button>
+            <button onclick="gerarRota()">🗺️ GERAR ROTA DIA</button>
+            <button onclick="abrirFormulario()">📝 FORMULÁRIO COLETA</button>
+            <button onclick="abrirConfig()">⚙️ CONFIG</button>
+        </nav>
+
+        <div class="filtro-data">
+            <label>Data:</label>
+            <input type="date" id="filtroData" onchange="carregarAgenda()">
+        </div>
+
+        <div id="agendaContainer">
+            <!-- Agenda será carregada aqui -->
+        </div>
+
+        <div id="formularioContainer" style="display:none;">
+            <!-- Formulário de novo agendamento -->
+            <h2>Novo Agendamento</h2>
+            <form id="agendamentoForm">
+                <input type="date" id="data" required>
+                <input type="time" id="hora" required>
+                <input type="text" id="nome" placeholder="Nome Completo" required>
+                <input type="text" id="endereco" placeholder="Endereço" required>
+                <select id="coletor">
+                    <option value="CHARLENE">CHARLENE</option>
+                    <option value="LORENA">LORENA</option>
+                </select>
+                <input type="text" id="fontePagadora" placeholder="Fonte Pagadora">
+                <input type="text" id="pontoRef" placeholder="Ponto de Referência">
+                <input type="text" id="responsavel" placeholder="Responsável">
+                <input type="text" id="telefone" placeholder="Telefone">
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
